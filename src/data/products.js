@@ -10,8 +10,6 @@ export const products = [
       "A luminous solitaire inspired by Dubai evenings, cut for fire and quiet confidence.",
     details:
       "18K white gold, certified natural diamond center, hidden halo, hand-polished comfort band.",
-    prompt:
-      "Luxury diamond solitaire ring on matte black reflective stone, warm champagne rim light, Dubai high jewellery mood, macro studio photography, sharp diamond sparkle, ultra premium.",
   },
   {
     id: "meher-bridal-set",
@@ -24,8 +22,6 @@ export const products = [
       "An opulent Indian bridal silhouette with temple detail and regal gold depth.",
     details:
       "22K gold bridal necklace, earrings, maang tikka styling, kundan-inspired hand setting.",
-    prompt:
-      "Indian bridal gold jewellery set with kundan and temple details on black velvet, warm cinematic light, champagne gold reflections, Dubai luxury bridal editorial.",
   },
   {
     id: "noura-gold-necklace",
@@ -38,8 +34,6 @@ export const products = [
       "A sculptural necklace with soft curves, made for evening sarees and silk gowns.",
     details:
       "22K yellow gold, layered filigree links, adjustable clasp, heirloom-grade polish.",
-    prompt:
-      "22 karat gold necklace on deep charcoal silk, Indian bridal craftsmanship, premium studio product photo, soft warm lighting, gold glow, elegant shadows.",
   },
   {
     id: "almas-tennis-earrings",
@@ -52,8 +46,6 @@ export const products = [
       "Diamond drop earrings that frame the face with restrained, modern glamour.",
     details:
       "18K rose gold, brilliant-cut diamonds, secure lock back, lightweight evening fit.",
-    prompt:
-      "Luxury diamond drop earrings floating on black background, champagne reflections, precise sparkle, modern Dubai jewellery campaign, macro product photography.",
   },
   {
     id: "sultana-bangles",
@@ -66,8 +58,6 @@ export const products = [
       "Stacked gold bangles with intricate patterning for festive and bridal layering.",
     details:
       "22K gold pair, hand-engraved texture, smooth inner finish, bridal stack compatible.",
-    prompt:
-      "Pair of ornate 22K Indian gold bangles on black marble, soft beige backdrop glow, intricate engraving, royal bridal jewellery, high-end product photo.",
   },
   {
     id: "layla-diamond-pendant",
@@ -80,8 +70,6 @@ export const products = [
       "A delicate pendant with a brilliant center, made for everyday luxury.",
     details:
       "18K gold chain, diamond pendant, adjustable length, certificate included.",
-    prompt:
-      "Diamond pendant necklace on matte black bust, warm gold accent lighting, minimalist premium jewellery photography, Indian and Middle Eastern luxury feel.",
   },
   {
     id: "jumeirah-diamond-set",
@@ -94,8 +82,6 @@ export const products = [
       "A statement diamond suite for receptions, galas, and destination weddings.",
     details:
       "Necklace and earrings suite, graded diamonds, white gold setting, bespoke sizing.",
-    prompt:
-      "High jewellery diamond necklace and earrings set on glossy black acrylic, Dubai gala luxury, cinematic champagne lighting, premium editorial product shot.",
   },
   {
     id: "rajwada-gold-haram",
@@ -108,7 +94,5 @@ export const products = [
       "A royal long haram with heritage motifs and dramatic bridal presence.",
     details:
       "22K long haram, antique finish, layered motif work, designed for bridal portraits.",
-    prompt:
-      "Royal Indian bridal long gold haram necklace on black velvet, antique temple motifs, cinematic warm gold lighting, ultra premium jewellery campaign.",
   },
 ];

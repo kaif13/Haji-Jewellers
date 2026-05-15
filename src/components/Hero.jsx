@@ -1,11 +1,11 @@
-import { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import gsap from 'gsap'
-import { FiArrowUpRight, FiCalendar, FiCheckCircle } from 'react-icons/fi'
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import { FiArrowUpRight, FiCalendar, FiCheckCircle } from "react-icons/fi";
 
 function Hero() {
-  const jewelRef = useRef(null)
+  const jewelRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -13,13 +13,13 @@ function Hero() {
         y: -10,
         rotate: 0.8,
         duration: 3.4,
-        ease: 'sine.inOut',
+        ease: "sine.inOut",
         repeat: -1,
         yoyo: true,
-      })
-    })
-    return () => ctx.revert()
-  }, [])
+      });
+    });
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section className="relative overflow-hidden bg-luxury-radial pt-24 md:pt-28">
@@ -35,37 +35,51 @@ function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative z-10"
         >
           <p className="indian-ornament mb-4 inline-flex text-[10px] font-bold uppercase tracking-[0.26em] text-champagne sm:text-xs sm:tracking-[0.32em]">
             Royal Indian bridal house
           </p>
           <h1 className="max-w-5xl font-display text-[3.05rem] font-semibold leading-[0.9] text-ivory sm:text-6xl md:text-8xl xl:text-[8.6rem]">
-            Jewellery made for <span className="gold-text">saat pheras, nikkah</span> and royal receptions.
+            Jewellery made for{" "}
+            <span className="gold-text">Saat pheras, Nikkah</span> and royal
+            receptions.
           </h1>
           <p className="mt-5 max-w-2xl text-sm leading-7 text-mist sm:text-base md:mt-7 md:text-lg md:leading-8">
-            Haji Jewellers curates 22K gold harams, kundan-inspired bridal sets, diamond rings,
-            bangles, pendants, and reception jewellery with the warmth of Indian tradition.
+            Haji Jewellers curates 22K gold harams, kundan-inspired bridal sets,
+            diamond rings, bangles, pendants, and reception jewellery with the
+            warmth of Indian tradition.
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4">
-            <Link to="/collections" className="lux-button bg-champagne text-ink hover:bg-ivory">
+            <Link
+              to="/collections"
+              className="lux-button bg-champagne text-ink hover:bg-ivory"
+            >
               Explore Collection <FiArrowUpRight />
             </Link>
-            <Link to="/contact" className="lux-button border border-champagne/30 text-champagne hover:bg-champagne/10">
+            <Link
+              to="/contact"
+              className="lux-button border border-champagne/30 text-champagne hover:bg-champagne/10"
+            >
               <FiCalendar /> Book Appointment
             </Link>
           </div>
 
           <div className="mt-6 grid max-w-2xl grid-cols-3 gap-2 text-center sm:mt-12 sm:gap-3">
             {[
-              ['22K', 'Gold craft'],
-              ['Rs.2L+', 'Jewellery edit'],
-              ['Private', 'Bridal styling'],
+              ["22K", "Gold craft"],
+              ["Rs.2L+", "Jewellery edit"],
+              ["Private", "Bridal styling"],
             ].map(([value, label]) => (
-              <div key={label} className="rounded-2xl border border-champagne/20 bg-maroon/25 p-3 backdrop-blur sm:p-4">
-                <p className="font-display text-2xl font-semibold text-champagne sm:text-3xl">{value}</p>
+              <div
+                key={label}
+                className="rounded-2xl border border-champagne/20 bg-maroon/25 p-3 backdrop-blur sm:p-4"
+              >
+                <p className="font-display text-2xl font-semibold text-champagne sm:text-3xl">
+                  {value}
+                </p>
                 <p className="mt-1 text-[9px] font-bold uppercase leading-4 tracking-[0.12em] text-sand sm:text-[11px] sm:tracking-[0.16em]">
                   {label}
                 </p>
@@ -84,8 +98,12 @@ function Hero() {
           <div className="absolute -right-8 top-10 h-28 w-28 rounded-full border border-champagne/25 bg-ruby/20 blur-sm" />
 
           <div className="absolute -left-6 top-[42%] z-20 hidden rounded-[24px] border border-champagne/20 bg-black/70 p-5 shadow-glass backdrop-blur-xl md:block lg:-left-10">
-            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-sand">Bridal sets from</p>
-            <p className="mt-1 font-display text-4xl font-semibold text-champagne">Rs.9.45L</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-sand">
+              Bridal sets from
+            </p>
+            <p className="mt-1 font-display text-4xl font-semibold text-champagne">
+              Rs.9.45L
+            </p>
           </div>
 
           <div className="absolute -right-2 top-20 z-20 hidden max-w-[190px] rounded-[26px] border border-champagne/20 bg-maroon/55 p-5 shadow-glass backdrop-blur-xl md:block">
@@ -117,7 +135,7 @@ function Hero() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Hero
+export default Hero;
