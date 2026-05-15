@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #fff8eb;
+  background: #070706;
+  font-family: Manrope, Inter, system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #070706;
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(216, 183, 111, 0.12), transparent 26rem),
+    radial-gradient(circle at 88% 18%, rgba(123, 30, 43, 0.18), transparent 28rem),
+    linear-gradient(rgba(216, 183, 111, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216, 183, 111, 0.028) 1px, transparent 1px),
+    #070706;
+  background-size: auto, auto, 58px 58px, 58px 58px, auto;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image:
+    radial-gradient(circle at 50% 50%, transparent 0 16px, rgba(216, 183, 111, 0.18) 17px, transparent 18px),
+    radial-gradient(circle at 50% 50%, rgba(123, 30, 43, 0.18) 0 2px, transparent 3px);
+  background-position: 0 0, 24px 24px;
+  background-size: 96px 96px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  color: #070706;
+  background: #d8b76f;
+}
+
+.lux-container {
+  width: min(1240px, calc(100% - 40px));
+  margin-inline: auto;
+  padding-inline: clamp(0.75rem, 2.4vw, 2rem);
+}
+
+@media (min-width: 1024px) {
+  .lux-container {
+    width: min(1280px, calc(100% - 96px));
+  }
+}
+
+.section-pad {
+  padding-block: clamp(5rem, 8vw, 8rem);
+}
+
+.indian-ornament {
+  position: relative;
+}
+
+.indian-ornament::before,
+.indian-ornament::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: min(12vw, 110px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(216, 183, 111, 0.7), transparent);
+}
+
+.indian-ornament::before {
+  right: calc(100% + 18px);
+}
+
+.indian-ornament::after {
+  left: calc(100% + 18px);
+}
+
+.glass-panel {
+  border: 1px solid rgba(216, 183, 111, 0.2);
+  background:
+    linear-gradient(145deg, rgba(255, 248, 235, 0.085), rgba(123, 30, 43, 0.08)),
+    rgba(255, 248, 235, 0.025);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 248, 235, 0.08);
+  backdrop-filter: blur(22px);
+}
+
+.gold-text {
+  background: linear-gradient(135deg, #fff3c5, #d8b76f 34%, #a98232 68%, #fff0bb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(216, 183, 111, 0.75), rgba(123, 30, 43, 0.65), transparent);
+}
+
+.lux-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 999px;
+  padding: 0 24px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform 240ms ease, border-color 240ms ease, background 240ms ease, color 240ms ease, box-shadow 240ms ease;
+}
+
+.lux-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 55px rgba(216, 183, 111, 0.18);
+}
+
+.bridal-frame {
+  position: relative;
+}
+
+.bridal-frame::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  z-index: 2;
+  pointer-events: none;
+  border: 1px solid rgba(216, 183, 111, 0.28);
+  border-radius: inherit;
+}
+
+.swiper-pagination-bullet {
+  background: rgba(216, 183, 111, 0.55) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #d8b76f !important;
+}
