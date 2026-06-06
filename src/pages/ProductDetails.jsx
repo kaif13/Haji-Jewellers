@@ -15,27 +15,27 @@ function ProductDetails() {
   const related = products.filter((item) => item.id !== product.id).slice(0, 3);
 
   return (
-    <main className="pt-28">
-      <section className="lux-container grid gap-10 py-16 lg:grid-cols-[0.95fr_1.05fr]">
+    <main className="pt-24 sm:pt-28">
+      <section className="lux-container grid gap-9 py-10 sm:py-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-10">
         <div className="relative overflow-hidden rounded-[34px] border border-champagne/15 bg-velvet">
           <img
             src={product.image}
             alt={product.name}
-            className="h-full min-h-[520px] w-full object-cover"
+            className="aspect-[4/5] h-full w-full object-cover sm:max-h-[680px] lg:min-h-[520px]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
         </div>
         <div className="flex flex-col justify-center">
           <Link
             to="/collections"
-            className="mb-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-champagne"
+            className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-champagne sm:mb-8 sm:tracking-[0.18em]"
           >
             <FiArrowLeft /> Back to Collections
           </Link>
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-champagne">
             {product.category}
           </p>
-          <h1 className="font-display text-6xl font-semibold leading-none text-ivory md:text-8xl">
+          <h1 className="font-display text-5xl font-semibold leading-[0.95] text-ivory sm:text-6xl md:text-7xl xl:text-8xl">
             {product.name}
           </h1>
           <p className="mt-6 text-xl font-bold uppercase tracking-[0.18em] text-champagne">

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { FiMenu, FiSearch, FiX } from 'react-icons/fi'
 
 const links = [
@@ -13,6 +13,7 @@ const links = [
 function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 28)
@@ -20,6 +21,23 @@ function Navbar() {
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    if (!open) return undefined
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') setOpen(false)
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [open])
 
   const navClass = ({ isActive }) =>
     `relative text-xs font-bold uppercase tracking-[0.2em] transition hover:text-champagne ${
@@ -33,7 +51,7 @@ function Navbar() {
       }`}
     >
       <nav className="lux-container flex h-20 items-center justify-between">
-        <Link to="/" className="font-display text-3xl font-semibold tracking-wide text-ivory">
+        <Link to="/" className="font-display text-[1.7rem] font-semibold tracking-wide text-ivory sm:text-3xl">
           Haji <span className="gold-text">Jewellers</span>
         </Link>
         <div className="hidden items-center gap-9 lg:flex">
@@ -70,10 +88,14 @@ function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-ink/96 p-5 backdrop-blur-xl lg:hidden"
+            transition={{ duration: reduceMotion ? 0 : 0.2 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
+            className="fixed inset-0 z-50 overflow-y-auto bg-ink/96 p-5 backdrop-blur-xl lg:hidden"
           >
             <div className="flex items-center justify-between">
               <span className="font-display text-2xl font-semibold text-ivory">Haji Jewellers</span>
@@ -86,7 +108,12 @@ function Navbar() {
                 <FiX />
               </button>
             </div>
-            <div className="mt-12 grid gap-5">
+            <motion.div
+              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: reduceMotion ? 0 : 0.3, delay: reduceMotion ? 0 : 0.05 }}
+              className="mt-12 grid gap-5"
+            >
               {links.map(([label, path]) => (
                 <NavLink
                   key={label}
@@ -97,7 +124,7 @@ function Navbar() {
                   {label}
                 </NavLink>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

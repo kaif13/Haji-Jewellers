@@ -6,7 +6,7 @@ import { collections } from '../data/collections'
 
 function Collections() {
   return (
-    <main className="pt-32">
+    <main className="pt-28 sm:pt-32">
       <section className="lux-container pb-16">
         <SectionHeader
           eyebrow="Collections"
@@ -19,7 +19,7 @@ function Collections() {
           ))}
         </div>
       </section>
-      <section className="lux-container pb-24">
+      <section className="lux-container pb-16 sm:pb-24">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />

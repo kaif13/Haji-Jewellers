@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination } from 'swiper/modules'
 import 'swiper/css'
@@ -24,6 +24,8 @@ const badges = [
 ]
 
 function Home() {
+  const reduceMotion = useReducedMotion()
+
   return (
     <main>
       <Hero />
@@ -57,11 +59,11 @@ function Home() {
         <Swiper
           modules={[Autoplay, Pagination]}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
-          spaceBetween={24}
+          autoplay={reduceMotion ? false : { delay: 4500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          spaceBetween={18}
           breakpoints={{
             0: { slidesPerView: 1 },
-            720: { slidesPerView: 2 },
+            640: { slidesPerView: 2, spaceBetween: 24 },
             1100: { slidesPerView: 3 },
           }}
           className="!pb-12"
@@ -170,7 +172,7 @@ function Home() {
       <section className="lux-container section-pad">
         <div className="glass-panel rounded-[34px] p-8 text-center md:p-14">
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-champagne">Private appointment</p>
-          <h2 className="mx-auto max-w-4xl font-display text-5xl font-semibold leading-tight text-ivory md:text-7xl">
+          <h2 className="mx-auto max-w-4xl font-display text-[2.5rem] font-semibold leading-[1.08] text-ivory sm:text-5xl md:text-7xl">
             Let us curate jewellery for your wedding ceremony, festive gift, or family legacy purchase.
           </h2>
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
@@ -189,17 +191,20 @@ function Home() {
 }
 
 function FeaturePanel({ eyebrow, title, copy, image }) {
+  const reduceMotion = useReducedMotion()
+
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: reduceMotion ? 0 : 0.55 }}
       className="overflow-hidden rounded-[32px] border border-champagne/15 bg-white/[0.04]"
     >
-      <img src={image} alt={title} loading="lazy" className="h-80 w-full object-cover" />
-      <div className="p-7">
+      <img src={image} alt={title} loading="lazy" className="h-64 w-full object-cover sm:h-80" />
+      <div className="p-5 sm:p-7">
         <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-champagne">{eyebrow}</p>
-        <h3 className="font-display text-4xl font-semibold text-ivory">{title}</h3>
+        <h3 className="font-display text-3xl font-semibold text-ivory sm:text-4xl">{title}</h3>
         <p className="mt-3 text-sm leading-7 text-mist">{copy}</p>
       </div>
     </motion.article>

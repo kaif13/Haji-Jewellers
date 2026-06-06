@@ -74,7 +74,7 @@ img {
 }
 
 .section-pad {
-  padding-block: clamp(5rem, 8vw, 8rem);
+  padding-block: clamp(4rem, 8vw, 8rem);
 }
 
 .indian-ornament {
@@ -135,9 +135,11 @@ img {
   transition: transform 240ms ease, border-color 240ms ease, background 240ms ease, color 240ms ease, box-shadow 240ms ease;
 }
 
-.lux-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 55px rgba(216, 183, 111, 0.18);
+@media (hover: hover) and (pointer: fine) {
+  .lux-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 55px rgba(216, 183, 111, 0.18);
+  }
 }
 
 .bridal-frame {
@@ -160,4 +162,114 @@ img {
 
 .swiper-pagination-bullet-active {
   background: #d8b76f !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .diamond-cursor-enabled,
+  .diamond-cursor-enabled * {
+    cursor: none !important;
+  }
+
+  .diamond-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    opacity: 0;
+    will-change: transform;
+    transition: opacity 160ms ease;
+  }
+
+  .diamond-cursor[data-visible="true"] {
+    opacity: 1;
+  }
+
+  .diamond-cursor svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    transition: transform 180ms ease, filter 180ms ease;
+    filter: drop-shadow(0 0 8px rgba(216, 183, 111, 0.75));
+  }
+
+  .diamond-cursor[data-interactive="true"] svg {
+    transform: scale(1.32) rotate(8deg);
+    filter: drop-shadow(0 0 12px rgba(255, 240, 187, 0.95));
+  }
+
+  .diamond-cursor[data-pressed="true"] svg {
+    transform: scale(0.82) rotate(-5deg);
+  }
+
+  .diamond-cursor__gem {
+    animation: diamond-shimmer 2.4s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  .diamond-cursor__spark {
+    animation: diamond-spark 1.4s ease-in-out infinite;
+    transform-origin: center;
+  }
+}
+
+@keyframes diamond-shimmer {
+  0%,
+  100% {
+    opacity: 0.88;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes diamond-spark {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+
+@media (max-width: 639px) {
+  .lux-container {
+    width: min(100% - 24px, 1240px);
+    padding-inline: 0.25rem;
+  }
+
+  .indian-ornament::before,
+  .indian-ornament::after {
+    display: none;
+  }
+
+  .lux-button {
+    width: 100%;
+    padding-inline: 18px;
+    letter-spacing: 0.1em;
+  }
+
+  .bridal-frame::before {
+    inset: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

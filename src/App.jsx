@@ -4,6 +4,7 @@ import Lenis from 'lenis'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
+import DiamondCursor from './components/DiamondCursor'
 import Home from './pages/Home'
 import Collections from './pages/Collections'
 import ProductDetails from './pages/ProductDetails'
@@ -22,10 +23,15 @@ function ScrollToTop() {
 
 function App() {
   useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduceMotion) return undefined
+
     const lenis = new Lenis({
-      duration: 1.15,
+      duration: 1.35,
+      easing: (time) => Math.min(1, 1.001 - 2 ** (-10 * time)),
       smoothWheel: true,
-      wheelMultiplier: 0.9,
+      wheelMultiplier: 0.75,
+      touchMultiplier: 1,
     })
 
     let frame
@@ -42,7 +48,7 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen overflow-hidden bg-ink text-ivory">
+    <div className="min-h-screen overflow-x-clip bg-ink text-ivory">
       <ScrollToTop />
       <Navbar />
       <Routes>
@@ -54,6 +60,7 @@ function App() {
       </Routes>
       <Footer />
       <WhatsAppButton />
+      <DiamondCursor />
     </div>
   )
 }

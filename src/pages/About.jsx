@@ -2,8 +2,8 @@ import SectionHeader from '../components/SectionHeader'
 
 function About() {
   return (
-    <main className="pt-32">
-      <section className="lux-container grid items-center gap-12 pb-24 lg:grid-cols-2">
+    <main className="pt-28 sm:pt-32">
+      <section className="lux-container grid items-center gap-10 pb-16 sm:pb-24 lg:grid-cols-2 lg:gap-12">
         <div>
           <SectionHeader
             align="left"
@@ -25,10 +25,10 @@ function About() {
         <img
           src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=1200&q=85"
           alt="Luxury jewellery display"
-          className="min-h-[560px] rounded-t-full border border-champagne/20 object-cover shadow-gold"
+          className="aspect-[4/5] h-auto w-full rounded-t-[999px] border border-champagne/20 object-cover shadow-gold sm:max-h-[620px]"
         />
       </section>
-      <section className="bg-velvet py-24">
+      <section className="bg-velvet py-16 sm:py-24">
         <div className="lux-container grid gap-6 md:grid-cols-3">
           {[
             ['01', 'Consultation first', 'A calmer buying experience built around styling, occasion, and comfort.'],

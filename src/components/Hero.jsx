@@ -1,13 +1,16 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import gsap from "gsap";
 import { FiArrowUpRight, FiCalendar, FiCheckCircle } from "react-icons/fi";
 
 function Hero() {
   const jewelRef = useRef(null);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (reduceMotion) return undefined;
+
     const ctx = gsap.context(() => {
       gsap.to(jewelRef.current, {
         y: -10,
@@ -19,7 +22,7 @@ function Hero() {
       });
     });
     return () => ctx.revert();
-  }, []);
+  }, [reduceMotion]);
 
   return (
     <section className="relative overflow-hidden bg-luxury-radial pt-24 md:pt-28">
@@ -31,20 +34,19 @@ function Hero() {
       <div className="absolute right-6 top-28 hidden h-[68vh] w-px bg-gradient-to-b from-transparent via-champagne/35 to-transparent lg:block" />
       <div className="absolute inset-x-0 top-24 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
 
-      <div className="lux-container relative grid items-center gap-7 pb-10 sm:gap-10 md:pb-16 lg:min-h-[calc(100vh-7rem)] lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div className="lux-container relative grid items-center gap-8 pb-12 sm:gap-10 md:pb-12 lg:min-h-[620px] lg:grid-cols-[1fr_0.9fr] lg:gap-14">
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.65, ease: "easeOut" }}
           className="relative z-10"
         >
           <p className="indian-ornament mb-4 inline-flex text-[10px] font-bold uppercase tracking-[0.26em] text-champagne sm:text-xs sm:tracking-[0.32em]">
             Royal Indian bridal house
           </p>
-          <h1 className="max-w-5xl font-display text-[3.05rem] font-semibold leading-[0.9] text-ivory sm:text-6xl md:text-8xl xl:text-[8.6rem]">
-            Jewellery made for{" "}
-            <span className="gold-text">Saat pheras, Nikkah</span> and royal
-            receptions.
+          <h1 className="max-w-2xl font-display text-4xl font-semibold leading-tight text-ivory sm:text-[2.75rem] md:text-5xl xl:text-6xl">
+            Royal Jewellery for{" "}
+            <span className="gold-text">Life's Grand Celebrations.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-sm leading-7 text-mist sm:text-base md:mt-7 md:text-lg md:leading-8">
             Haji Jewellers curates 22K gold harams, kundan-inspired bridal sets,
@@ -67,7 +69,7 @@ function Hero() {
             </Link>
           </div>
 
-          <div className="mt-6 grid max-w-2xl grid-cols-3 gap-2 text-center sm:mt-12 sm:gap-3">
+          <div className="mt-7 grid max-w-2xl grid-cols-3 gap-2 text-center sm:mt-10 sm:gap-3">
             {[
               ["22K", "Gold craft"],
               ["Rs.2L+", "Jewellery edit"],
@@ -89,9 +91,9 @@ function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.15 }}
+          transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.1 }}
           className="relative"
         >
           <div className="absolute -inset-6 rounded-full bg-champagne/20 blur-3xl md:-inset-10" />
@@ -115,12 +117,12 @@ function Hero() {
 
           <div
             ref={jewelRef}
-            className="bridal-frame relative mx-auto max-w-[360px] overflow-hidden rounded-t-[190px] rounded-b-[30px] border border-champagne/25 bg-white/[0.04] p-3 shadow-gold sm:max-w-[430px] md:max-w-[560px] md:rounded-t-[280px] md:rounded-b-[42px] md:p-4"
+            className="bridal-frame relative mx-auto w-full max-w-[360px] overflow-hidden rounded-t-[190px] rounded-b-[30px] border border-champagne/25 bg-white/[0.04] p-3 shadow-gold sm:max-w-[430px] md:max-w-[560px] md:rounded-t-[280px] md:rounded-b-[42px] md:p-4"
           >
             <img
               src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1300&q=90"
               alt="Indian bridal jewellery by Haji Jewellers"
-              className="h-[310px] w-full rounded-t-[175px] rounded-b-[22px] object-cover sm:h-[380px] md:h-[600px] md:rounded-t-[260px] md:rounded-b-[30px]"
+              className="h-[310px] w-full rounded-t-[175px] rounded-b-[22px] object-cover sm:h-[380px] md:h-[480px] md:rounded-t-[260px] md:rounded-b-[30px]"
             />
             <div className="absolute inset-3 rounded-t-[175px] rounded-b-[22px] bg-gradient-to-t from-black/75 via-transparent to-maroon/15 md:inset-4 md:rounded-t-[260px] md:rounded-b-[30px]" />
             <div className="absolute bottom-5 left-5 right-5 z-10 rounded-[18px] border border-champagne/20 bg-black/65 p-4 backdrop-blur-xl md:bottom-8 md:left-10 md:right-8 md:rounded-[24px] md:p-5 lg:left-14">

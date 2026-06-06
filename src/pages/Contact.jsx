@@ -3,8 +3,8 @@ import SectionHeader from '../components/SectionHeader'
 
 function Contact() {
   return (
-    <main className="pt-32">
-      <section className="lux-container grid gap-10 pb-24 lg:grid-cols-[0.85fr_1.15fr]">
+    <main className="pt-28 sm:pt-32">
+      <section className="lux-container grid gap-10 pb-16 sm:pb-24 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <SectionHeader
             align="left"
@@ -19,7 +19,7 @@ function Contact() {
             <ContactRow icon={<FiMessageCircle />} title="WhatsApp" copy="Fast product enquiries and bridal consultations" />
           </div>
         </div>
-        <form className="glass-panel rounded-[32px] p-7 md:p-10">
+        <form className="glass-panel rounded-[28px] p-5 sm:p-7 md:rounded-[32px] md:p-10">
           <div className="grid gap-5 md:grid-cols-2">
             <Field label="Full name" placeholder="Your name" />
             <Field label="Phone or WhatsApp" placeholder="+971..." />

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { FiPlus } from 'react-icons/fi'
 
 const faqs = [
@@ -11,6 +11,7 @@ const faqs = [
 
 function FAQAccordion() {
   const [open, setOpen] = useState(0)
+  const reduceMotion = useReducedMotion()
 
   return (
     <div className="mx-auto max-w-3xl divide-y divide-champagne/15 overflow-hidden rounded-[28px] border border-champagne/15 bg-white/[0.04]">
@@ -19,10 +20,11 @@ function FAQAccordion() {
           <button
             type="button"
             onClick={() => setOpen(open === index ? -1 : index)}
-            className="flex w-full items-center justify-between gap-6 p-6 text-left"
+            aria-expanded={open === index}
+            className="flex w-full items-center justify-between gap-4 p-5 text-left sm:gap-6 sm:p-6"
           >
-            <span className="font-display text-2xl font-semibold text-ivory">{question}</span>
-            <FiPlus className={`shrink-0 text-champagne transition ${open === index ? 'rotate-45' : ''}`} />
+            <span className="font-display text-xl font-semibold text-ivory sm:text-2xl">{question}</span>
+            <FiPlus className={`shrink-0 text-champagne transition motion-reduce:transition-none ${open === index ? 'rotate-45' : ''}`} />
           </button>
           <AnimatePresence initial={false}>
             {open === index && (
@@ -30,10 +32,10 @@ function FAQAccordion() {
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.28 }}
+                transition={{ duration: reduceMotion ? 0 : 0.24 }}
                 className="overflow-hidden"
               >
-                <p className="px-6 pb-6 text-sm leading-7 text-mist">{answer}</p>
+                <p className="px-5 pb-5 text-sm leading-7 text-mist sm:px-6 sm:pb-6">{answer}</p>
               </motion.div>
             )}
           </AnimatePresence>
