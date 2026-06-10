@@ -13,7 +13,7 @@ export const products = [
   },
   {
     id: "meher-bridal-set",
-    name: "Meher Bridal Set",
+    name: "Meherbano Bridal Set",
     category: "Bridal Sets",
     price: "₹9,45,000",
     image:
@@ -78,21 +78,8 @@ export const products = [
     price: "₹13,05,000",
     image:
       "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=1200&q=85",
-    description:
-      "A statement diamond suite for receptions, galas, and destination weddings.",
+    description: "A diamond suite for receptions, and destination weddings.",
     details:
       "Necklace and earrings suite, graded diamonds, white gold setting, bespoke sizing.",
-  },
-  {
-    id: "rajwada-gold-haram",
-    name: "Rajwada Gold Haram",
-    category: "Gold Jewellery",
-    price: "₹14,20,000",
-    image:
-      "https://images.unsplash.com/photo-1625908733452-13b7c3d80553?auto=format&fit=crop&w=1200&q=85",
-    description:
-      "A royal long haram with heritage motifs and dramatic bridal presence.",
-    details:
-      "22K long haram, antique finish, layered motif work, designed for bridal portraits.",
   },
 ];

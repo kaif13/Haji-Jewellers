@@ -35,9 +35,9 @@ function About() {
             ['02', 'Bridal heritage', 'Indian craft references are balanced with modern international restraint.'],
             ['03', 'Luxury presentation', 'Every touchpoint feels premium, from imagery and packaging to appointment flow.'],
           ].map(([number, title, copy]) => (
-            <div key={title} className="glass-panel rounded-[28px] p-7">
-              <p className="gold-text font-display text-6xl font-semibold">{number}</p>
-              <h2 className="mt-5 font-display text-3xl font-semibold text-ivory">{title}</h2>
+            <div key={title} className="glass-panel rounded-[24px] p-6 sm:rounded-[28px] sm:p-7">
+              <p className="gold-text font-display text-5xl font-semibold sm:text-6xl">{number}</p>
+              <h2 className="mt-4 font-display text-3xl font-semibold text-ivory sm:mt-5">{title}</h2>
               <p className="mt-3 text-sm leading-7 text-mist">{copy}</p>
             </div>
           ))}

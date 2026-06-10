@@ -16,8 +16,14 @@ function ProductDetails() {
 
   return (
     <main className="pt-24 sm:pt-28">
-      <section className="lux-container grid gap-9 py-10 sm:py-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-10">
+      <section className="lux-container grid gap-8 py-8 sm:gap-10 sm:py-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:py-16">
         <div className="relative overflow-hidden rounded-[34px] border border-champagne/15 bg-velvet">
+          <Link
+            to="/"
+            className="absolute left-3 top-3 z-20 inline-flex items-center gap-2 rounded-full border border-champagne/25 bg-black/70 px-3 py-2.5 text-[9px] font-bold uppercase tracking-[0.1em] text-champagne backdrop-blur-xl transition hover:bg-champagne hover:text-ink sm:left-6 sm:top-6 sm:px-5 sm:py-3 sm:text-xs sm:tracking-[0.18em]"
+          >
+            <FiArrowLeft /> Back to Home Page
+          </Link>
           <img
             src={product.image}
             alt={product.name}
@@ -26,22 +32,16 @@ function ProductDetails() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
         </div>
         <div className="flex flex-col justify-center">
-          <Link
-            to="/collections"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-champagne sm:mb-8 sm:tracking-[0.18em]"
-          >
-            <FiArrowLeft /> Back to Collections
-          </Link>
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-champagne">
             {product.category}
           </p>
-          <h1 className="font-display text-5xl font-semibold leading-[0.95] text-ivory sm:text-6xl md:text-7xl xl:text-8xl">
+          <h1 className="font-display text-4xl font-semibold leading-[1] text-ivory sm:text-5xl md:text-6xl xl:text-7xl">
             {product.name}
           </h1>
           <p className="mt-6 text-xl font-bold uppercase tracking-[0.18em] text-champagne">
             {product.price}
           </p>
-          <p className="mt-6 text-lg leading-8 text-mist">
+          <p className="mt-5 text-base leading-7 text-mist sm:mt-6 sm:text-lg sm:leading-8">
             {product.description}
           </p>
           <p className="mt-5 text-sm leading-7 text-sand">{product.details}</p>
@@ -65,20 +65,12 @@ function ProductDetails() {
           </div>
         </div>
       </section>
-      {/* <section className="lux-container pb-20">
-        <div className="rounded-[28px] border border-champagne/15 bg-white/[0.04] p-6">
-           <p className="text-xs font-bold uppercase tracking-[0.22em] text-champagne">
-            AI replacement prompt
-          </p>
-          <p className="mt-3 text-sm leading-7 text-mist">{product.prompt}</p> *
-        </div>
-      </section> */}
-      <section className="lux-container pb-24">
+      <section className="lux-container pb-16 sm:pb-24">
         <SectionHeader
           eyebrow="Related pieces"
           title="Continue the appointment edit."
         />
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {related.map((item) => (
             <ProductCard key={item.id} product={item} />
           ))}

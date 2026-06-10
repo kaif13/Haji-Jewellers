@@ -42,14 +42,18 @@ function Footer() {
             <a
               aria-label="Instagram"
               href="https://instagram.com"
-              className="grid h-11 w-11 place-items-center rounded-full border border-champagne/20 text-champagne"
+              target="_blank"
+              rel="noreferrer"
+              className="grid h-11 w-11 place-items-center rounded-full border border-champagne/20 text-champagne transition hover:border-champagne/50 hover:bg-champagne hover:text-ink"
             >
               <FaInstagram />
             </a>
             <a
               aria-label="WhatsApp"
               href="https://wa.me/971500000000"
-              className="grid h-11 w-11 place-items-center rounded-full border border-champagne/20 text-champagne"
+              target="_blank"
+              rel="noreferrer"
+              className="grid h-11 w-11 place-items-center rounded-full border border-champagne/20 text-champagne transition hover:border-champagne/50 hover:bg-champagne hover:text-ink"
             >
               <FaWhatsapp />
             </a>
@@ -59,7 +63,7 @@ function Footer() {
       <div className="border-t border-champagne/10 px-4 py-5 text-center text-[10px] uppercase leading-5 tracking-[0.14em] text-sand sm:text-xs sm:tracking-[0.18em]">
         Haji Jewellers. Designed by{" "}
         <a
-          href="https://kaifwebstudio.com"
+          href="https://kaifwebstudio.in"
           target="_blank"
           rel="noreferrer"
           className="text-champagne transition hover:text-ivory"

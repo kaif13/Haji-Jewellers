@@ -20,7 +20,7 @@ function Collections() {
         </div>
       </section>
       <section className="lux-container pb-16 sm:pb-24">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

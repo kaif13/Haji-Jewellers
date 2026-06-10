@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { FiMenu, FiSearch, FiX } from 'react-icons/fi'
+import { FiMenu, FiX } from 'react-icons/fi'
 
 const links = [
   ['Home', '/'],
@@ -11,16 +11,8 @@ const links = [
 ]
 
 function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const reduceMotion = useReducedMotion()
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 28)
-    onScroll()
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => {
     if (!open) return undefined
@@ -46,9 +38,7 @@ function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition duration-500 ${
-        scrolled ? 'border-b border-champagne/15 bg-ink/82 shadow-glass backdrop-blur-2xl' : 'bg-transparent'
-      }`}
+      className="fixed inset-x-0 top-0 z-50 border-b border-champagne/15 bg-ink/82 shadow-glass backdrop-blur-2xl"
     >
       <nav className="lux-container flex h-20 items-center justify-between">
         <Link to="/" className="font-display text-[1.7rem] font-semibold tracking-wide text-ivory sm:text-3xl">
@@ -62,13 +52,6 @@ function Navbar() {
           ))}
         </div>
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            aria-label="Search"
-            className="grid h-11 w-11 place-items-center rounded-full border border-champagne/15 bg-white/[0.04] text-ivory transition hover:border-champagne/50 hover:text-champagne"
-          >
-            <FiSearch />
-          </button>
           <Link
             to="/contact"
             className="hidden rounded-full border border-champagne/30 px-5 py-3 text-xs font-bold uppercase tracking-[0.18em] text-champagne transition hover:bg-champagne hover:text-ink md:inline-flex"
@@ -119,7 +102,7 @@ function Navbar() {
                   key={label}
                   to={path}
                   onClick={() => setOpen(false)}
-                  className="font-display text-[2.25rem] font-semibold leading-tight text-ivory transition hover:text-champagne"
+                  className="font-display text-[2rem] font-semibold leading-tight text-ivory transition hover:text-champagne sm:text-[2.25rem]"
                 >
                   {label}
                 </NavLink>

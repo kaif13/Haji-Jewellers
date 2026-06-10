@@ -1,8 +1,7 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import gsap from "gsap";
-import { FiArrowUpRight, FiCalendar, FiCheckCircle } from "react-icons/fi";
+import { FiCheckCircle, FiStar } from "react-icons/fi";
 
 function Hero() {
   const jewelRef = useRef(null);
@@ -34,7 +33,7 @@ function Hero() {
       <div className="absolute right-6 top-28 hidden h-[68vh] w-px bg-gradient-to-b from-transparent via-champagne/35 to-transparent lg:block" />
       <div className="absolute inset-x-0 top-24 h-px bg-gradient-to-r from-transparent via-champagne/30 to-transparent" />
 
-      <div className="lux-container relative grid items-center gap-8 pb-12 sm:gap-10 md:pb-12 lg:min-h-[620px] lg:grid-cols-[1fr_0.9fr] lg:gap-14">
+      <div className="lux-container relative grid items-center gap-9 pb-12 sm:gap-12 md:pb-14 lg:min-h-[620px] lg:grid-cols-[1fr_0.9fr] lg:gap-14">
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,51 +41,39 @@ function Hero() {
           className="relative z-10"
         >
           <p className="indian-ornament mb-4 inline-flex text-[10px] font-bold uppercase tracking-[0.26em] text-champagne sm:text-xs sm:tracking-[0.32em]">
-            Royal Indian bridal house
+            Haji Jewellers
           </p>
           <h1 className="max-w-2xl font-display text-4xl font-semibold leading-tight text-ivory sm:text-[2.75rem] md:text-5xl xl:text-6xl">
-            Royal Jewellery for{" "}
-            <span className="gold-text">Life's Grand Celebrations.</span>
+            Jewellery made for{" "}
+            <span className="gold-text">your family's special moments.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-sm leading-7 text-mist sm:text-base md:mt-7 md:text-lg md:leading-8">
-            Haji Jewellers curates 22K gold harams, kundan-inspired bridal sets,
-            diamond rings, bangles, pendants, and reception jewellery with the
-            warmth of Indian tradition.
+            From wedding sets and gold bangles to rings and everyday pieces, we
+            help you find jewellery that feels right for you and your family.
           </p>
 
-          <div className="mt-6 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4">
-            <Link
-              to="/collections"
-              className="lux-button bg-champagne text-ink hover:bg-ivory"
-            >
-              Explore Collection <FiArrowUpRight />
-            </Link>
-            <Link
-              to="/contact"
-              className="lux-button border border-champagne/30 text-champagne hover:bg-champagne/10"
-            >
-              <FiCalendar /> Book Appointment
-            </Link>
-          </div>
-
-          <div className="mt-7 grid max-w-2xl grid-cols-3 gap-2 text-center sm:mt-10 sm:gap-3">
-            {[
-              ["22K", "Gold craft"],
-              ["Rs.2L+", "Jewellery edit"],
-              ["Private", "Bridal styling"],
-            ].map(([value, label]) => (
-              <div
-                key={label}
-                className="rounded-2xl border border-champagne/20 bg-maroon/25 p-3 backdrop-blur sm:p-4"
-              >
-                <p className="font-display text-2xl font-semibold text-champagne sm:text-3xl">
-                  {value}
-                </p>
-                <p className="mt-1 text-[9px] font-bold uppercase leading-4 tracking-[0.12em] text-sand sm:text-[11px] sm:tracking-[0.16em]">
-                  {label}
-                </p>
+          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-5 sm:mt-9 sm:gap-x-8">
+            <div>
+              <div className="flex gap-1 text-champagne" aria-label="Five star customer reviews">
+                {[...Array(5)].map((_, index) => (
+                  <FiStar key={index} className="fill-current" />
+                ))}
               </div>
-            ))}
+              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-sand">
+                Customer reviews
+              </p>
+            </div>
+
+            <div className="h-10 w-px bg-champagne/25" aria-hidden="true" />
+
+            <div>
+              <p className="font-display text-3xl font-semibold text-champagne">
+                22K Gold
+              </p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-sand">
+                Traditional purity
+              </p>
+            </div>
           </div>
         </motion.div>
 
@@ -99,7 +86,7 @@ function Hero() {
           <div className="absolute -inset-6 rounded-full bg-champagne/20 blur-3xl md:-inset-10" />
           <div className="absolute -right-8 top-10 h-28 w-28 rounded-full border border-champagne/25 bg-ruby/20 blur-sm" />
 
-          <div className="absolute -left-6 top-[42%] z-20 hidden rounded-[24px] border border-champagne/20 bg-black/70 p-5 shadow-glass backdrop-blur-xl md:block lg:-left-10">
+          <div className="absolute -left-10 top-[42%] z-20 hidden rounded-[24px] border border-champagne/20 bg-black/70 p-5 shadow-glass backdrop-blur-xl lg:block">
             <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-sand">
               Bridal sets from
             </p>
@@ -108,7 +95,7 @@ function Hero() {
             </p>
           </div>
 
-          <div className="absolute -right-2 top-20 z-20 hidden max-w-[190px] rounded-[26px] border border-champagne/20 bg-maroon/55 p-5 shadow-glass backdrop-blur-xl md:block">
+          <div className="absolute -right-2 top-20 z-20 hidden max-w-[190px] rounded-[26px] border border-champagne/20 bg-maroon/55 p-5 shadow-glass backdrop-blur-xl xl:block">
             <FiCheckCircle className="mb-3 text-2xl text-champagne" />
             <p className="text-xs font-bold uppercase leading-5 tracking-[0.16em] text-ivory">
               Gold purity and diamond guidance
